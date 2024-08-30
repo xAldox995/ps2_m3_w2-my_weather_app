@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 
@@ -21,7 +22,7 @@ const CityWeatherCard = ({ location, zipCode, onClick }) => {
         setWeatherData(weatherFetchData);
       })
       .catch((err) => {
-        console.log("C'è un errore nel catch",err);
+        console.log("C'è un errore nel catch", err);
       });
   };
 
@@ -30,20 +31,30 @@ const CityWeatherCard = ({ location, zipCode, onClick }) => {
   }, [location, zipCode]);
 
   return (
-    <Row xs={8} md={6} lg={3} className=" m-5 g-5" >
+    <Row xs={8} md={6} lg={3} className=" m-5 g-5">
       <Col>
-        <Card onClick={onClick} style={{ border: '1px solid #ccc', padding: '20px', cursor: 'pointer' }}>
+        <Card
+          onClick={onClick}
+          style={{
+            border: "1px solid #ccc",
+            padding: "20px",
+            cursor: "pointer",
+          }}
+        >
           <Card.Body>
             <Card.Title>{weatherData.name}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
-                Temperature : {weatherData.main.temp} °C
+              Temp Min : {} °C 
+            </Card.Subtitle>
+            <Card.Subtitle className="mb-2 text-muted">
+            Temp Max : {} °C
             </Card.Subtitle>
             <Card.Text>
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </Card.Text>
-            <Card.Link href="#">Card Link</Card.Link>
-            <Card.Link href="#">Another Link</Card.Link>
+            <Card.Link href="#void">Card Link</Card.Link>
+            <Card.Link href="#void">Another Link</Card.Link>
           </Card.Body>
         </Card>
       </Col>
