@@ -3,33 +3,31 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 
 const SearchBarComp = ({ onSearch }) => {
   const [city, setCity] = useState("");
-  const [zipCode, setZipCode] = useState("");
 
   const handleSearch = () => {
     const cleanedCity = city.trim();
-    const cleanedZipCode = zipCode.trim();
 
     if (cleanedCity !== "") {
-      onSearch(cleanedCity, cleanedZipCode);
+      onSearch(cleanedCity);
     }
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        placeholder="Search for a city..."
-      />
-      <input
-        type="text"
-        value={zipCode}
-        onChange={(e) => setZipCode(e.target.value)}
-        placeholder="Enter ZIP code..."
-      />
-      <button onClick={handleSearch}>Search</button>
-    </div>
+    <Row className="text-center mx-4">
+      <Col xs={4} md={7}>
+        <Form.Control
+          placeholder="Vedi la città dei tuoi sogni"
+          type="text"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        />
+      </Col>
+      <Col xs={1}>
+        <Button onClick={handleSearch}>CERCA</Button>
+      </Col>
+
+      {/* <Button onClick={handleSearch}>CERCA</Button> */}
+    </Row>
   );
 };
 
