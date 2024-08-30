@@ -8,6 +8,9 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path = '/' element = {<Home/>} />
+      {/*QUI VEDO I DETTAGLI DELLE CITTA
+       <Route path='/details/:cityName/:zipCode' element = {<CityWeatherDetails/>}/> 
+       */}
     </Routes>
 
     </BrowserRouter>
