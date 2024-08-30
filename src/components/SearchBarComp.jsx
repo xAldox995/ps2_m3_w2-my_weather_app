@@ -16,7 +16,7 @@ const SearchBarComp = ({ onSearch }) => {
 
   return (
     <Row className="text-center mx-4">
-      <Col xs={4} md={7}>
+      <Col xs={4} >
         <Form.Control
           placeholder="Vedi la città dei tuoi sogni"
           type="text"
@@ -24,7 +24,7 @@ const SearchBarComp = ({ onSearch }) => {
           onChange={(e) => setCity(e.target.value)}
         />
       </Col>
-      <Col xs={3} md={4}>
+      <Col xs={3}>
         <Form.Control
           placeholder="Metti il CAP, CAP-ito"
           type="number"
