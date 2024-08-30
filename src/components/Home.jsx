@@ -24,7 +24,7 @@ const Home = () => {
     <div className="text-center mt-5">
       <h1>My Weather App</h1>
       <div className="mt-5">
-        <SearchBarComp onSeach={handleSearch} />
+        <SearchBarComp onSearch={handleSearch} />
         {searchLocation && (
          <CityWeatherCard location={searchLocation} zipCode={searchZipCode} onClick = {() => handleCardClick(searchLocation, searchZipCode)} />
         )}

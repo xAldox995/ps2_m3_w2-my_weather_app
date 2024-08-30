@@ -3,12 +3,14 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 
 const SearchBarComp = ({ onSearch }) => {
   const [city, setCity] = useState("");
+  const [zipCode, setZipCode] = useState("");
 
   const handleSearch = () => {
     const cleanedCity = city.trim();
+    const cleanedZipCode = zipCode.trim();
 
     if (cleanedCity !== "") {
-      onSearch(cleanedCity);
+      onSearch(cleanedCity, cleanedZipCode);
     }
   };
 
@@ -20,6 +22,16 @@ const SearchBarComp = ({ onSearch }) => {
           type="text"
           value={city}
           onChange={(e) => setCity(e.target.value)}
+        />
+      </Col>
+      <Col xs={3} md={4}>
+        <Form.Control
+          placeholder="Metti il CAP, CAP-ito"
+          type="number"
+          value={zipCode}
+          onChange={(e) => {
+            setZipCode(e.target.value);
+          }}
         />
       </Col>
       <Col xs={1}>
