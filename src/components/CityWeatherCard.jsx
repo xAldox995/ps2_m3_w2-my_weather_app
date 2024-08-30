@@ -59,8 +59,6 @@ const CityWeatherCard = ({ location, zipCode, onClick }) => {
               Weather: {description} <br />
               Humidity: {humidity}%
             </Card.Text>
-            <Card.Link href="#void">Card Link</Card.Link>
-            <Card.Link href="#void">Another Link</Card.Link>
           </Card.Body>
         </Card>
       </Col>
