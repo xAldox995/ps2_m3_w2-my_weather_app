@@ -7,8 +7,8 @@ const Home = () => {
   //uso una location di default che sarà Roma
   const [userLocation, setUserLocation] = useState("Rome");
   const [userZipCode, setUserZipCode] = useState("001000");
-  const [searchLocation, setSearchLocation] = useState(null);
-  const [searchZipCode, setSearchZipCode] = useState(null);
+  const [searchLocation, setSearchLocation] = useState('');
+  const [searchZipCode, setSearchZipCode] = useState('');
   const navigate = useNavigate();
 
   const handleSearch = (city, zipCode) => {
