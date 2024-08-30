@@ -3,7 +3,10 @@ import { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 
 const CityWeatherCard = ({ location, zipCode, onClick }) => {
-  const [weatherData, setWeatherData] = useState({});
+  const [tempMin, setTempMin] = useState(null);
+  const [tempMax, setTempMax] = useState(null);
+  const [description, setDescription] = useState(null);
+  const [humidity, setHumidity] = useState(null);
 
   const fetchWeather = () => {
     fetch(
@@ -19,7 +22,10 @@ const CityWeatherCard = ({ location, zipCode, onClick }) => {
       })
       .then((weatherFetchData) => {
         console.log("Dati della fetch", weatherFetchData);
-        setWeatherData(weatherFetchData);
+        setTempMin(weatherFetchData.main.temp_min.toFixed(2));
+        setTempMax(weatherFetchData.main.temp_max.toFixed(2));
+        setDescription(weatherFetchData.weather[0].description);
+        setHumidity(weatherFetchData.main.humidity);
       })
       .catch((err) => {
         console.log("C'è un errore nel catch", err);
@@ -42,16 +48,16 @@ const CityWeatherCard = ({ location, zipCode, onClick }) => {
           }}
         >
           <Card.Body>
-            <Card.Title>{weatherData.name}</Card.Title>
+            <Card.Title>{location}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
-              Temp Min : {} °C 
+              Temp Min : {tempMin} °C
             </Card.Subtitle>
             <Card.Subtitle className="mb-2 text-muted">
-            Temp Max : {} °C
+              Temp Max : {tempMax} °C
             </Card.Subtitle>
             <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              Weather: {description} <br />
+              Humidity: {humidity}%
             </Card.Text>
             <Card.Link href="#void">Card Link</Card.Link>
             <Card.Link href="#void">Another Link</Card.Link>
